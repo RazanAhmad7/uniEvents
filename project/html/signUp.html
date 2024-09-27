@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="../css/login.css">
+
+</head>
+<body>
+    <div class="form-container">
+
+        <div>
+            <h4>Welcome!</h4>
+        </div>
+
+        <div class="title">
+            <h1>Admin Sign Up</h1>
+        </div>
+
+        <div class="image-container">
+            <div class="imageDiv">
+                <img src="../assets/ui.png" alt="" width="170px" height="160px">
+            </div> 
+        </div>
+    
+        <form id="myForm">
+
+            <div class="name-container">
+                <div class="input-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" oninput="checkName(this)" required>
+                    <span class="errors" id="fName-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" oninput="checkName(this)" required>
+                    <span class="errors" id="lName-error"></span>
+                </div>
+            </div>
+
+            <label >Email</label>
+            <input type="text" id="email" oninput="check(this)" >
+            <span class="errors" id="email-error"></span>
+            
+          
+            <label >Password</label>
+            <input type="text" id="password" oninput="check(this)" >
+            <span class="errors" id="pass-error"></span>
+            
+          
+            <label>Confirm Password</label>
+            <input type="text" id="confirmPassword"  oninput="passConfirmation()" >
+            <span class="errors" id="pass-conf-error"></span>
+
+            
+            <label >Phone Number</label>
+            <input type="tel" id="phone" oninput="check(this)">
+            <span class="errors" id="num-error"></span>
+            <p class="message">Already have an account? <a href="login.html">Login Now</a></p>
+
+
+            <input type="submit" value="Sign Up" onclick="storeData()">
+            
+        </form>
+    </div>
+
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

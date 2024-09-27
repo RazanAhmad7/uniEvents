@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="../assets/logo.webp" alt="Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">About Us</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="search-div">
+        <div class="search-date">
+            <input type="text" id="searchByDate" placeholder="Type to search by Date">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="select-category">
+            <select name="categories" id="searchByFaculty" >
+                <option value="" disabled selected>Select to search by Faculty Name</option>
+                <option value="Faculty of Information Technology">Faculty of Information Technology</option>
+                <option value="Faculty of Medicine">Faculty of Medicine</option>
+                <option value="Faculty of Engineering">Faculty of Engineering</option>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="search-button">
+            <input type="submit" value="Search" onclick="searchByFaculty()" >
+        </div>
+    </div>
+
+    <div class="title-div">
+        <div>
+            <h1>UPCOMING EVENTS</h1>  
+        </div>
+    </div>
+
+    <div class="events-container" id="eventsContainer">
+        <div class="eventCards" id="eventsCards"></div>
+
+    <div class="pagination-section">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+        <a  class="page-number" onclick="displayContent(events,0,2)" >1</a>
+        <a  class="page-number"onclick="displayContent(events,2,4)">2</a>
+        <a  class="page-number" onclick="displayContent(events,4,6)">3</a>
+        <i class="fa-solid fa-circle-chevron-right"></i>
+       
+    </div>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="left-section">
+                <h4>University Events</h4>
+                <p>Stay tuned for upcoming events!</p>
+                <div class="social-media">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-icon"><img src="../assets/facebook.png" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="../assets/X.png" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="../assets/instgram.png" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="quick-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="universities">
+                    <h4>Departments</h4>
+                    <ul>
+                        <li> IT Department </li>
+                        <li> Medicine Department </li>
+                        <li> Engineering Department </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/events.js">
+    </script>
+</body>
+</html>

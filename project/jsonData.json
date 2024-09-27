@@ -1,0 +1,160 @@
+{
+"it" : [
+    {
+        "id": 1,
+        "title": "The Line Tracing Robotics Competition TCRT 2024",
+        "short-desc": "A robotics competition organized by the Deanship of Student Affairs and the Computer and Information Club (CTC).",
+        "full-desc": "The Line Tracing Robotics Competition TCRT 2024 was held at JUST and saw the participation of over 35 teams. The competition aimed to foster innovation, teamwork, and leadership among students by designing and programming robots to complete specific tasks autonomously. Several awards were presented to outstanding teams.",
+        "date": "22 Aug 2024",
+        "location": "Computer and Information Technology Building",
+        "image": "",
+        "time": "10:00 AM - 2:00 PM"
+      },
+      {
+        "id": 2,
+        "title": "Artificial Intelligence and Machine Learning Seminar",
+        "short-desc": "A seminar focused on the future of AI and its applications in various fields.",
+        "full-desc": "This event, organized by the Department of Computer Science, brought together experts in Artificial Intelligence to discuss cutting-edge AI research and applications. Students had the chance to learn from industry leaders and participate in interactive discussions.",
+        "date": "15 Sep 2024",
+        "location": "Lecture Hall A, Information Technology Building",
+        "image": "",
+        "time": "9:00 AM - 12:00 PM"
+      },
+      {
+        "id": 3,
+        "title": "Hackathon 2024: Innovate and Code",
+        "short-desc": "A 48-hour coding competition for developing tech solutions.",
+        "full-desc": "Hackathon 2024 challenged students to create innovative software solutions to real-world problems. Organized by the Software Engineering Department, participants worked in teams to design, build, and pitch their solutions. The event featured mentors from the tech industry and several prizes for winning teams.",
+        "date": "20 Nov 2024",
+        "location": "IT Labs, Computer and Information Technology Faculty",
+        "image": "",
+        "time": "8:00 AM (Day 1) - 6:00 PM (Day 2)"
+      },
+      {
+        "id": 4,
+        "title": "Cybersecurity Awareness Workshop",
+        "short-desc": "A workshop focusing on the latest cybersecurity threats and defenses.",
+        "full-desc": "Hosted by the Network Security Department, this workshop provided students with practical knowledge on how to protect digital systems from cyberattacks. Topics covered included encryption, ethical hacking, and securing online data. Industry experts shared real-life case studies of cyber threats.",
+        "date": "30 Sep 2024",
+        "location": "Seminar Room, IT Faculty",
+        "image": "",
+        "time": "11:00 AM - 1:00 PM"
+      },
+      {
+        "id": 5,
+        "title": "Blockchain Technology for Developers",
+        "short-desc": "A technical workshop on the fundamentals of blockchain and its development.",
+        "full-desc": "This workshop, organized by the Information Systems Department, introduced participants to blockchain technology, focusing on its architecture, smart contracts, and potential applications in various industries. Students had the opportunity to work on blockchain development platforms during hands-on sessions.",
+        "date": "10 Oct 2024",
+        "location": "IT Lab 3, Information Technology Faculty",
+        "image": "",
+        "time": "2:00 PM - 5:00 PM"
+      }
+    ],
+
+"med" : [
+        {
+          "id": 1,
+          "title": "Medical Innovations Conference 2024",
+          "short-desc": "A conference exploring the latest medical research and innovations.",
+          "full-desc": "The Medical Innovations Conference 2024 brings together leading healthcare professionals and researchers to discuss cutting-edge medical technologies, treatments, and innovations. Students and faculty will have the opportunity to attend keynote speeches and poster sessions.",
+          "date": "12 Oct 2024",
+          "location": "Medical Sciences Auditorium",
+          "image": "",
+          "time": "9:00 AM - 5:00 PM"
+        },
+        {
+          "id": 2,
+          "title": "Surgical Techniques Workshop",
+          "short-desc": "A hands-on workshop focused on the latest surgical techniques.",
+          "full-desc": "Organized by the Department of Surgery, this workshop provides medical students with practical training on modern surgical techniques using advanced simulators. The workshop is led by renowned surgeons and includes demonstrations and hands-on practice.",
+          "date": "5 Nov 2024",
+          "location": "Surgical Skills Lab, JUST Hospital",
+          "image": "",
+          "time": "1:00 PM - 4:00 PM"
+        },
+        {
+          "id": 3,
+          "title": "Mental Health Awareness Week",
+          "short-desc": "A week-long event to raise awareness about mental health issues.",
+          "full-desc": "This week-long event, organized by the Department of Psychiatry, aims to raise awareness about mental health, its challenges, and available support systems. Activities include guest speakers, mental health screenings, and student-led initiatives.",
+          "date": "24 Sep - 28 Sep 2024",
+          "location": "Health Sciences Building",
+          "image": "",
+          "time": "10:00 AM - 3:00 PM"
+        },
+        {
+          "id": 4,
+          "title": "First Aid Training Workshop",
+          "short-desc": "A workshop offering certification in basic first aid techniques.",
+          "full-desc": "The Department of Emergency Medicine is offering a workshop in basic first aid skills. Participants will learn how to perform CPR, control bleeding, and treat fractures. Upon completion, students will receive an official first aid certification.",
+          "date": "18 Oct 2024",
+          "location": "Simulation Center, Medical Sciences Building",
+          "image": "",
+          "time": "9:00 AM - 12:00 PM"
+        },
+        {
+          "id": 5,
+          "title": "Pharmacology Research Symposium",
+          "short-desc": "A symposium discussing advancements in pharmacology research.",
+          "full-desc": "This event brings together researchers and students from the Faculty of Pharmacy to present and discuss recent advancements in drug development and pharmacology research. Attendees will have the opportunity to present their own research and network with professionals in the field.",
+          "date": "20 Nov 2024",
+          "location": "Pharmacy Building, JUST Campus",
+          "image": "",
+          "time": "11:00 AM - 4:00 PM"
+        }
+      ],
+    
+"eng": [
+        {
+          "id": 1,
+          "title": "Engineering Expo 2024",
+          "short-desc": "An exhibition showcasing student engineering projects.",
+          "full-desc": "Engineering Expo 2024 highlights the best engineering projects from various departments, including mechanical, electrical, and civil engineering. Students will present their innovative designs and prototypes to faculty, industry experts, and visitors.",
+          "date": "2 Dec 2024",
+          "location": "Engineering Plaza, JUST",
+          "image": "",
+          "time": "10:00 AM - 4:00 PM"
+        },
+        {
+          "id": 2,
+          "title": "Renewable Energy Workshop",
+          "short-desc": "A workshop exploring the latest trends in renewable energy technologies.",
+          "full-desc": "This workshop, organized by the Electrical Engineering Department, will cover topics related to solar, wind, and other renewable energy sources. Experts in the field will share knowledge on the implementation and future of renewable energy technologies.",
+          "date": "15 Oct 2024",
+          "location": "Room 210, Engineering Building",
+          "image": "",
+          "time": "9:00 AM - 1:00 PM"
+        },
+        {
+          "id": 3,
+          "title": "Civil Engineering Site Visit",
+          "short-desc": "A field trip to a local construction project for civil engineering students.",
+          "full-desc": "Civil engineering students will participate in a site visit to a large construction project in Irbid. This visit aims to provide practical exposure to real-world civil engineering challenges and construction management techniques.",
+          "date": "10 Nov 2024",
+          "location": "Irbid City Construction Site",
+          "image": "",
+          "time": "8:00 AM - 12:00 PM"
+        },
+        {
+          "id": 4,
+          "title": "3D Printing in Engineering Design",
+          "short-desc": "A workshop on the use of 3D printing technology in engineering.",
+          "full-desc": "This workshop, hosted by the Mechanical Engineering Department, introduces students to 3D printing and its applications in engineering design. Participants will get hands-on experience in designing and printing parts using 3D printers.",
+          "date": "8 Nov 2024",
+          "location": "Engineering Design Lab, Mechanical Engineering Department",
+          "image": "",
+          "time": "2:00 PM - 5:00 PM"
+        },
+        {
+          "id": 5,
+          "title": "Sustainable Building Materials Seminar",
+          "short-desc": "A seminar discussing sustainable materials in modern construction.",
+          "full-desc": "The Department of Civil Engineering is hosting a seminar on the use of sustainable and eco-friendly materials in the construction industry. Topics include the latest research and advancements in reducing the environmental impact of building materials.",
+          "date": "18 Dec 2024",
+          "location": "Lecture Hall B, Engineering Faculty",
+          "image": "",
+          "time": "1:00 PM - 4:00 PM"
+        }
+      ] 
+}

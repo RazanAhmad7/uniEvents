@@ -1,0 +1,509 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1; 
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #003366;
+    color: white;
+    padding: 15px 0;
+    position: fixed; /* Make the navbar fixed */
+    width: 100%; /* Full width of the viewport */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Optional: set a max width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 40px; /* Space from the left */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 20px; /* Space on the right */
+    margin-left: auto; /* Pushes nav links to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #c9d4e6;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 0; /* Adjust padding for smaller screens */
+    }
+
+    .nav-links {
+        gap: 20px; /* Reduce gap between links for smaller screens */
+    }
+
+    .nav-links a {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    
+    .logo {
+        margin-left: 20px; /* Adjust logo margin for smaller screens */
+    }
+}
+
+/* Slider Styles */
+.slider-con {
+    padding: 2rem;
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.slider {
+
+    display: flex; 
+    width: 100%;
+    height: 500px;
+    aspect-ratio: 16 / 9; /* Aspect ratio for the slider */
+    overflow: hidden; /* Hide overflow to prevent scrolling */
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+}
+
+.slider img {
+    display: none; /* Hide all slides by default */
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.slider img:first-child {
+    display: block; /* Show the first image by default */
+}
+
+.slider-nav a {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 0 0.25rem;
+    transition: opacity 250ms ease; 
+}
+
+.slider-nav a.active {
+    opacity: 1; /* Highlight active link */
+}
+h2 {
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #003366;
+    margin: 20px 0; 
+    text-align: center; /* Center align the text */
+  
+    padding: 10px; /* Add padding around the text */
+   
+    border-radius: 5px; /* Rounded corners for the background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+}
+
+
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 24px; /* Smaller size for mobile devices */
+    }
+}
+/*content*/
+
+.event-card {
+    display: flex;
+    width: 80%;
+    height: auto; /* Changed from 300px to auto */
+    max-width: 90%; 
+    gap: 20px;
+    background-color: #c9d4e6;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;  
+    margin-bottom: 40px;
+}
+
+.event-photo {
+    width: 550px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.event-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.event-info {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+.event-where, .event-when {
+    display: flex;
+    align-items: center;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.event-where i, .event-when i {
+    color: #ff4747;
+    font-size: 18px;
+}
+
+.event-description {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .event-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-photo {
+        width: 100%;
+    }
+
+    .event-details {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .event-card {
+        padding: 15px;
+    }
+
+    .event-title {
+        font-size: 20px;
+    }
+
+    .event-info {
+        flex-direction: column;
+    }
+
+    .event-where, .event-when {
+        width: 100%;
+    }
+}
+
+/* Small Card Slider Container */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 10px;
+    margin-bottom: 40px;
+}
+
+/* Small Card Slider Styles */
+.small-card-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.small-card-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.small-card {
+    flex: 0 0 auto;
+    width: 300px; /* Adjust width as necessary */
+    height: auto; /* Remove fixed height */
+    background-color: #c9d4e6;
+    border-radius: 10px;
+    padding: 15px; /* Add more padding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.small-card-description {
+    margin-top: 10px; /* Space between info and description */
+    font-size: 14px; /* Font size for description */
+    color: #666; /* Description color */
+    text-align: center; /* Center the text */
+    overflow: hidden; /* Prevent text overflow */
+    display: -webkit-box; /* For ellipsis effect */
+    /* Limit to 3 lines */
+    -webkit-box-orient: vertical; /* Required for ellipsis effect */
+    max-height: 4.5em; /* Adjust max height for 3 lines */
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
+}
+
+/* Additional responsive adjustments */
+@media screen and (max-width: 768px) {
+    .small-card {
+        width: 150px; /* Adjust width for smaller screens */
+    }
+
+    .small-card-description {
+        font-size: 12px; /* Smaller font size for mobile */
+         /* Limit to 2 lines on smaller screens */
+        max-height: 3em; /* Adjust max height for 2 lines */
+    }
+}
+
+.small-card img {
+    width: 100%;
+    height: 220px; /* Increase height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.small-card-info {
+    text-align: center;
+}
+
+.small-card-title {
+    font-size: 18px; /* Increase font size */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.small-card-details {
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+
+/* Icon styles for where and when */
+.icon {
+    font-size: 16px; /* Adjust icon size */
+    color: #ff4747; /* Set icon color */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+/* Pre and Next Button Styles */
+.pre-btn, .nxt-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.pre-btn {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.nxt-btn {
+    right: 0;
+}
+
+.pre-btn img, .nxt-btn img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+.pre-btn:hover img, .nxt-btn:hover img {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-photo {
+        width: 100%;
+    }
+
+    .small-card {
+        width: 150px;
+    }
+
+    .pre-btn, .nxt-btn {
+        width: 40px;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #003366; 
+    color: white; 
+    padding: 20px 0; 
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.left-section {
+    width: 40%; 
+    padding-right: 20px;
+}
+
+.right-section {
+    width: 60%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.quick-links,
+.universities {
+    flex: 1; 
+    padding-left: 10px;
+}
+
+h4 {
+    margin-bottom: 10px; 
+    font-weight: bold;
+    
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+ul li {
+    margin: 5px 0; 
+}
+
+ul li a {
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px;
+    
+}
+
+ul li a:hover {
+    text-decoration: underline; 
+}
+
+
+/* Social Media Styles */
+.social-media {
+    margin-top: 20px;
+ }
+
+.social-icon {
+    margin-right: 15px;
+}
+
+.social-icon img {
+    width: 30px; 
+    height: auto; 
+}
+
+/* University Icons */
+.uni-icon {
+    width: 20px; 
+    height: auto; 
+    vertical-align: middle; 
+    margin-right: 5px; 
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .quick-links,
+    .universities {
+        padding: 0;
+    }
+
+}
+
