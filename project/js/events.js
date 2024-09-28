@@ -19,17 +19,17 @@ var events =JSON.parse(localStorage.getItem("events"));
 console.log(events);
 window.onload = function(){
      fetchAndStoreData();
-     displayContent(events,0,2);
+     displayContent(events);
     };
 
 
 
-function displayContent(elements,startIndex,endIndex){
+function displayContent(elements){
 
     const card = document.querySelector("#eventsContainer div");
     card.innerHTML = '';
         for (const key in elements) {
-            for (var i = startIndex; i < elements[key].length; i++) {
+            for (var i = 0; i < elements[key].length; i++) {
             const cardElement = document.createElement('div');
             cardElement.innerHTML = `
             <div class="eventCard" id="eventsCard">
