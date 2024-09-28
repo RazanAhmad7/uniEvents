@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #003366;
+    color: white;
+    padding: 15px 0;
+    position: fixed; /* Make the navbar fixed */
+    width: 100%; /* Full width of the viewport */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Optional: set a max width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 40px; /* Space from the left */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 20px; /* Space on the right */
+    margin-left: auto; /* Pushes nav links to the right */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #c9d4e6;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 0; /* Adjust padding for smaller screens */
+    }
+
+    .nav-links {
+        gap: 20px; /* Reduce gap between links for smaller screens */
+    }
+
+    .nav-links a {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    
+    .logo {
+        margin-left: 20px; /* Adjust logo margin for smaller screens */
+    }
+}
+
+
+
+.details-container {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c9d4e6;
+    
+}
+.details-box{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.details-container .image{
+    width: 70%;
+}
+.details-container .image img {
+    box-shadow: 8px 8px 8px rgba(60, 45, 45, 0.1);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.details-container .title{
+    margin: 40px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-container .title h1 {
+    font-size: 32px;
+   
+    color: #333;
+    font-weight: bold;
+}
+
+.details-container .date-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+    margin: 20px 0px;
+    font-size: 18px;
+    color: #1e1c1c;
+}
+
+.details-container .date-time i {
+    margin: 10px 5px;
+}
+.details-container .full-desc{
+    width: 100%;
+}
+.details-container .full-desc p {
+    font-size: 20px;
+    color: #1e1c1c;
+    line-height: 1.8;
+    text-align: justify;
+    
+}
+
+.fa-calendar, .fa-location-dot {
+    margin-right: 10px;
+    color: #ff6347;
+}
+
+
+
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #003366; 
+    color: white; 
+    padding: 20px 0; 
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.left-section {
+    width: 40%; 
+    padding-right: 20px;
+}
+
+.right-section {
+    width: 60%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.quick-links,
+.universities {
+    flex: 1; 
+    padding-left: 10px;
+}
+
+h4 {
+    margin-bottom: 10px; 
+    font-weight: bold;
+    
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+ul li {
+    margin: 5px 0; 
+}
+
+ul li a {
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px;
+    
+}
+
+ul li a:hover {
+    text-decoration: underline; 
+}
+
+
+/* Social Media Styles */
+.social-media {
+    margin-top: 20px;
+ }
+
+.social-icon {
+    margin-right: 15px;
+}
+
+.social-icon img {
+    width: 30px; 
+    height: auto; 
+}
+
+/* University Icons */
+.uni-icon {
+    width: 20px; 
+    height: auto; 
+    vertical-align: middle; 
+    margin-right: 5px; 
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .quick-links,
+    .universities {
+        padding: 0;
+    }
+}

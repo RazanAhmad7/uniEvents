@@ -2,12 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="/project/css/eventDetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+    <title>Events Details</title>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
@@ -16,49 +16,33 @@
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Events</a></li>
-                <li><a href="#">About Us</a></li>  
+                <li><a href="#">About Us</a></li>
             </ul>
         </div>
     </nav>
 
+   
+
+    <div class="details-container">
+        <div class="details-box">
+
+            <div class="title">
+                <h1>The Line Tracing Robotics Competition TCRT 2024</h1>
+            </div>
+            <div class="image">
+                <img src="/project/assets/event_1.webp" alt="">
+            </div>
+            
+            <div class="date-time">
+                <i class="fa-regular fa-calendar"></i> 22 Oct 2024 , 10:00 AM - 2:00 PM
+                <i class="fa-solid fa-location-dot"></i> NB99
+            </div>
     
-    <div class="search-div">
-        <div class="search-date">
-            <input type="text" id="searchByDate" placeholder="Type to search by Date">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="full-desc">
+                <p>The Line Tracing Robotics Competition TCRT 2024 was held at Jordan University of Science and Technology (JUST), featuring over 35 participating teams. Organized by the Deanship of Student Affairs and the Computer and Information Club (CTC), the event aimed to promote innovation, teamwork, and leadership among students. Teams were tasked with designing and programming robots to autonomously navigate a line-marked track. The competition included multiple rounds to test speed, accuracy, and adaptability. Participants demonstrated their creativity and problem-solving skills while collaborating and sharing ideas. Awards were presented for categories such as Best Design and Overall Champion, recognizing outstanding performances. The event concluded with a ceremony celebrating the achievements of the participants and inspiring them to pursue careers in STEM fields.
+                </p>
+            </div>
         </div>
-        <div class="select-category">
-            <select name="categories" id="searchByFaculty" >
-                <option value="" disabled selected>Select to search by Faculty Name</option>
-                <option value="Faculty of Information Technology">Faculty of Information Technology</option>
-                <option value="Faculty of Medicine">Faculty of Medicine</option>
-                <option value="Faculty of Engineering">Faculty of Engineering</option>
-            </select>
-            <i class="fa-solid fa-caret-down"></i>
-        </div>
-        <div class="search-button">
-            <input type="submit" value="Search" onclick="searchByFaculty()" >
-        </div>
-    </div>
-
-    <div class="title-div">
-        <div>
-            <h1>UPCOMING EVENTS</h1>  
-        </div>
-    </div>
-
-    <div class="events-container" id="eventsContainer">
-        <div class="eventCards" id="eventsCards"></div>
-
-    <div class="pagination-section">
-        <i class="fa-solid fa-circle-chevron-left"></i>
-        <a  class="page-number" onclick="displayContent(events)" >1</a>
-        <a  class="page-number"onclick="displayContent(events)">2</a>
-        <a  class="page-number" onclick="displayContent(events)">3</a>
-        <i class="fa-solid fa-circle-chevron-right"></i>
-       
-    </div>
-
     </div>
 
 
@@ -95,7 +79,11 @@
         </div>
     </footer>
 
-    <script src="../js/events.js">
-    </script>
+
+
+
+
+
+    <script src="/project/js/eventDetails.js"></script>
 </body>
 </html>
