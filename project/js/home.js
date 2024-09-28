@@ -1,16 +1,3 @@
-const slider = document.querySelector('.small-card-slider');
-const preBtn = document.querySelector('.pre-btn');
-const nxtBtn = document.querySelector('.nxt-btn');
-
-preBtn.addEventListener('click', () => {
-    slider.scrollLeft -= 300; // Adjust the scroll amount
-});
-
-nxtBtn.addEventListener('click', () => {
-    slider.scrollLeft += 300; // Adjust the scroll amount
-});
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll(".slider img");
