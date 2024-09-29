@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +9,84 @@
 body {
     display: flex;
     flex-direction: column;
-
     min-height: 100vh;
+}
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #c9d4e6;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#dark-mode-toggle:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #ff5757;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #dark-mode-toggle {
+        top: 5px;
+        right: 5px;
+        padding: 2px 6px;
+    }
+}
+
+
+
+/* Dark Mode body */
+body.dark-mode{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #444; 
+}
+
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+    background-color: #d7d7d7d9; 
+    color: white; 
+}
+
+
+/* Dark Mode Navigation Links */
+body.dark-mode .nav-links a {
+    color: rgb(0, 0, 0); /* Dark mode link color */
+}
+
+
+.nav-links a:hover {
+    color: #f1edde; 
+    transition: all 0.4s ease;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: #ff5757;
+}
+
+/* Main Content Area */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-top: 80px; /* Account for the fixed navbar */
+    transition: background-color 0.5s, color 0.5s;
 }
 
 
@@ -18,10 +95,10 @@ body {
     background-color: #003366;
     color: white;
     padding: 15px 0;
-    position: fixed; /* Make the navbar fixed */
-    width: 100%; /* Full width of the viewport */
-    top: 0; /* Stick to the top */
-    z-index: 1000; /* Ensure it stays on top of other content */
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 1000; 
 }
 
 .navbar .container {
@@ -41,15 +118,15 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    margin-left: 40px; /* Space from the left */
+    margin-left: 40px;
 }
 
 .nav-links {
     list-style-type: none;
     display: flex;
     gap: 40px;
-    margin-right: 20px; /* Space on the right */
-    margin-left: auto; /* Pushes nav links to the right */
+    margin-right: 20px; 
+    margin-left: auto; 
 }
 
 .nav-links a {
@@ -60,7 +137,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #c9d4e6;
+    color: #f1edde;
     text-decoration: none;
     transition: all 0.4s ease;
 }
@@ -68,22 +145,36 @@ body {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 10px 0; /* Adjust padding for smaller screens */
+        padding: 10px 0; /
     }
 
     .nav-links {
-        gap: 20px; /* Reduce gap between links for smaller screens */
+        gap: 20px; 
     }
 
     .nav-links a {
-        font-size: 16px; /* Adjust font size for smaller screens */
+        font-size: 16px; 
     }
     
     .logo {
-        margin-left: 20px; /* Adjust logo margin for smaller screens */
+        margin-left: 20px; 
     }
 }
 
+
+
+body.dark-mode .details-container {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d7d7d7d9;
+  padding-bottom: 3rem;
+}
 
 .details-container {
     max-width: 80%;
@@ -214,6 +305,23 @@ body {
 
 
 
+
+body.dark-mode .footer {
+    background-color: #d7d7d7d9; /* Dark footer */
+    color: #f0f0f0; /* Lighter text */
+}
+
+body.dark-mode .footer a {
+    color: #000000; /* Lighter link color in footer */
+}
+
+body.dark-mode .footer a:hover {
+    color: #ff5757; /* Hover effect for links in footer */
+}
+
+body.dark-mode .universities{
+    color:#000000 ;
+}
 /* Footer Styles */
 .footer {
     background-color: #003366; 
@@ -293,6 +401,7 @@ ul li a:hover {
     vertical-align: middle; 
     margin-right: 5px; 
 }
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .footer-container {
@@ -309,4 +418,6 @@ ul li a:hover {
     .universities {
         padding: 0;
     }
+
 }
+
