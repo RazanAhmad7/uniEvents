@@ -1,18 +1,3 @@
-function fetchAndStoreData() {
-  fetch("../jsonData.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not OK");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      localStorage.setItem("events", JSON.stringify(data));
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-    });
-}
 var events = JSON.parse(localStorage.getItem("events"));
 
 // events.events.forEach((element) => {
@@ -20,7 +5,6 @@ var events = JSON.parse(localStorage.getItem("events"));
 // });
 
 window.onload = function () {
-  fetchAndStoreData();
   displayContent(1);
 };
 
@@ -32,7 +16,7 @@ function displayContent(page) {
   currentPage = page;
 
   // Logic to display the events for the current page
-  const event = events.events; // Assuming this is your events array
+  const event = events; // Assuming this is your events array
   const start = (currentPage - 1) * eventsPerPage; // Calculate starting index
   const end = start + eventsPerPage; // Calculate ending index
   const eventsToDisplay = event.slice(start, end); // Get events for current page
@@ -140,16 +124,43 @@ function searchByFaculty() {
       console.log("No valid faculty selected");
       return; // Exit if no valid faculty is selected
   }
-  console.log(faculty);
-  // Filter events based on the selected faculty category
-  for (let i = 0; i < events.events.length; i++) {
-    if (faculty === events.events[i].category) {
-      specificEvents.push(events.events[i]);
+  for (key in events) {
+      if (faculty === events[key].category) {
+      specificEvents.push(events[key]);
     }
   }
 
   displayChoosenEvents(specificEvents);
 }
+const searchDateInput = document.getElementById('searchDateInput');
+searchDateInput.addEventListener('change', filterEvents);
+
+function filterEvents() {
+  // Get search terms
+  const dateSearchTerm = searchDateInput.value; // This is in YYYY-MM-DD format
+
+  // Log search terms to see if they are captured correctly
+  console.log('Date Search Term:', dateSearchTerm);
+
+  // Filter events based on title and date search terms
+  const filteredEvents = events.filter(event => {
+    const matchesDate = dateSearchTerm ? event.date === dateSearchTerm : true; // If no date is provided, return true for all
+
+    // Log each event to see how it matches the filter
+
+    return matchesDate; // Return events that match both criteria
+  });
+
+  // Log filtered events to verify if filtering works
+  console.log('Filtered Events:', filteredEvents);
+
+  // Populate the table with filtered events
+  createCard(filteredEvents);
+}
+
+
+
+
 
 function displayChoosenEvents(array) {
   const card = document.querySelector("#eventsContainer div");
