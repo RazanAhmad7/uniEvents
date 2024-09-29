@@ -8,8 +8,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     min-height: 100vh;
 }
 
@@ -86,78 +85,128 @@ body {
 }
 
 
-
 .details-container {
-    max-width: 90%;
+    max-width: 80%;
     height: auto;
     border-radius: 10px;
-    margin: 100px 0px;
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #c9d4e6;
-    
+  padding-bottom: 3rem;
 }
-.details-box{
+
+.details-box {
     width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.details-container .image{
-    width: 70%;
-}
-.details-container .image img {
-    box-shadow: 8px 8px 8px rgba(60, 45, 45, 0.1);
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
+
+.details-container .image {
+    width: 100%; 
+    margin-bottom: 20px;/
 }
 
-.details-container .title{
-    margin: 40px 0px;
+.details-container .image img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px rgba(60, 45, 45, 0.1);
+}
+
+.details-container .full-desc {
+    width: 100%; 
+    padding: 15px; 
+    box-sizing: border-box; 
+}
+
+
+/* Updated Title Design */
+.details-container .title {
+    width: 100%; 
+    margin: 40px 0; 
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    background-color: #E9ecef; 
+    padding: 15px; 
+    border-radius: 10px; 
 }
 
 .details-container .title h1 {
-    font-size: 32px;
-   
-    color: #333;
+    font-size: 28px;
+    color: black;
     font-weight: bold;
+    text-align: center; 
+    width: 100%;
+    margin: 0; 
 }
 
-.details-container .date-time {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 5px;
-    margin: 20px 0px;
-    font-size: 18px;
-    color: #1e1c1c;
+/* Cards for Date, Time, and Location */
+
+
+
+.info-cards {
+    display: flex; 
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    justify-content: center; 
+    width: 100%; 
+    margin: 20px 0; 
 }
 
-.details-container .date-time i {
-    margin: 10px 5px;
+.info-card {
+    flex: 1 1 200px; /* Allow the card to grow and shrink, with a minimum width of 200px */
+    background-color: #E9ecef; 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin: 10px; /* Reduce margin for better spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
-.details-container .full-desc{
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+    .info-card {
+        flex: 1 1 100%; /* Full width on small screens */
+        margin: 5px 0; /* Adjust margin for smaller screens */
+    }
+}
+.info-card i {
+    color: #ff4747; 
+    margin-right: 8px; 
+}
+.info-card:hover {
+    transform: scale(1.05); 
+}
+
+
+.info-card i {
+    color: #ff3131;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.details-container .full-desc {
     width: 100%;
 }
+
 .details-container .full-desc p {
     font-size: 20px;
     color: #1e1c1c;
     line-height: 1.8;
     text-align: justify;
-    
 }
 
 .fa-calendar, .fa-location-dot {
     margin-right: 10px;
-    color: #ff6347;
+    color: #ff3131;
 }
 
 
