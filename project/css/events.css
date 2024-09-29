@@ -135,13 +135,7 @@ input {
 .select-category {
   position: relative;
 }
-.search-date i {
-  position: absolute;
-  right: 10px;
-  top: 20px;
-  font-size: 18px;
-  color: #888;
-}
+
 .search-date input {
   width: 400px;
   padding: 10px;

@@ -149,7 +149,7 @@ function login() {
   for (let user of existingUsers) {
     if (lEmail.value === user.Email && lPass.value === user.Password) {
       userFound = true;
-      window.location.href = "dashboardPage.html";
+      window.location.href = "admin.html";
       break;
     }
   }
