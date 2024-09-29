@@ -4,34 +4,45 @@ var events = JSON.parse(localStorage.getItem("events"));
 //   localStorage.setItem(element.id, JSON.stringify(element));
 // });
 
+// Ensure this is triggered on page load to avoid flickering issues
 window.onload = function () {
   displayContent(1);
 };
 
+
+
 let currentPage = 1; // Start on the first page
 const eventsPerPage = 6; // Define how many events per page
-
 function displayContent(page) {
-  // Update the current page
-  currentPage = page;
+  // Fade out before updating content
+  document.querySelector('#eventsContainer').style.opacity = 0;
 
+  // Wait for 500ms (or match your CSS transition time) before updating content
+  setTimeout(function () {
+    // Update the current page
+    currentPage = page;
   // Logic to display the events for the current page
   const event = events; // Assuming this is your events array
   const start = (currentPage - 1) * eventsPerPage; // Calculate starting index
   const end = start + eventsPerPage; // Calculate ending index
   const eventsToDisplay = event.slice(start, end); // Get events for current page
 
-  // Clear the existing cards
-  const cardContainer = document.querySelector("#eventsCards");
-  cardContainer.innerHTML = ""; // Clear previous cards
 
-  // Create cards for the current page
-  eventsToDisplay.forEach((event) => {
-    createCard(event);
-  });
+    // Clear the existing cards
+    const cardContainer = document.querySelector("#eventsCards");
+    cardContainer.innerHTML = ""; // Clear previous cards
 
-  // Update pagination
-  updatePagination(event.length);
+    // Create cards for the current page
+    eventsToDisplay.forEach((event) => {
+      createCard(event);
+    });
+
+    // Update pagination
+    updatePagination(event.length);
+
+    // Fade in the content after it is updated
+    document.querySelector('#eventsContainer').style.opacity = 1;
+  }, 500); // 500ms matches the fade-out transition duration
 }
 
 function updatePagination(totalEvents) {
@@ -176,15 +187,8 @@ function displayChoosenEvents(array) {
 
 
 
-
-
-window.transitionToPage = function(href) {
-  document.querySelector('body').style.opacity = 0
-  setTimeout(function() { 
-      window.location.href = href
-  }, 500)
-}
-
 document.addEventListener('DOMContentLoaded', function(event) {
   document.querySelector('body').style.opacity = 1
 })
+
+
