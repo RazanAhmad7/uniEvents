@@ -11,10 +11,84 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
-.content {
-    flex-grow: 1; 
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #c9d4e6;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+#dark-mode-toggle:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #ff5757;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #dark-mode-toggle {
+        top: 5px;
+        right: 5px;
+        padding: 2px 6px;
+    }
+}
+
+
+
+/* Dark Mode body */
+body.dark-mode{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #444; 
+}
+
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+    background-color: #d7d7d7d9; 
+    color: white; 
+}
+
+
+/* Dark Mode Navigation Links */
+body.dark-mode .nav-links a {
+    color: rgb(0, 0, 0); /* Dark mode link color */
+}
+
+
+.nav-links a:hover {
+    color: #f1edde; 
+    transition: all 0.4s ease;
+}
+
+body.dark-mode .nav-links a:hover {
+    color: #ff5757;
+}
+
+/* Main Content Area */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-top: 80px; /* Account for the fixed navbar */
+    transition: background-color 0.5s, color 0.5s;
+}
+
 
 /* Navbar Styles */
 .navbar {
@@ -87,7 +161,37 @@ body {
     }
 }
 
+
+
+
+
+
 /* Slider Styles */
+
+body.dark-mode .slider-con{
+    background-color: #444;
+}
+body.dark-mode .slider-nav a {
+    background-color: white; /* Active dot in dark mode */
+}
+
+body.dark-mode .slider-nav a.active {
+    background-color: #ff5757; /* Active dot in dark mode */
+}
+
+/* Dark Mode Headings */
+body.dark-mode h2 {
+    color: #ff5757; /* Heading color in dark mode */
+}
+
+/* Additional Dark Mode Adjustments */
+body.dark-mode .slider img {
+    opacity: 0.9; /* Slightly dim the images in dark mode */
+}
+
+body.dark-mode .social-icon img {
+    filter: brightness(0.7); /* Darken social media icons */
+}
 .slider-con {
     padding: 2rem;
    width: 100%;
@@ -172,6 +276,32 @@ h2 {
         font-size: 24px; 
     }
 }
+
+
+
+
+
+body.dark-mode .content {
+    background-color: #444;
+    color: #f0f0f0; /* Lighter text for readability */
+}
+
+/* Dark Mode Event Cards */
+body.dark-mode .event-card {
+    background-color: #d7d7d7d9; /* Dark background for cards */
+    color: #f0f0f0; /* Lighter text */
+}
+
+body.dark-mode .event-where, 
+body.dark-mode .event-when {
+    background-color: #555; /* Darker background for info sections */
+}
+
+body.dark-mode .event-where i, 
+body.dark-mode .event-when i {
+    color: #ff5757;
+    font-size: 18px;
+}
 /*content*/
 
 .event-card {
@@ -180,7 +310,7 @@ h2 {
     height: auto; /* Changed from 300px to auto */
     max-width: 90%; 
     gap: 20px;
-    background-color: #f1edde;
+    background-color: #c9d4e6;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -219,7 +349,7 @@ h2 {
 .event-where, .event-when {
     display: flex;
     align-items: center;
-    background-color: #cbc5b0;
+    background-color: #E9ecef;
     border-radius: 5px;
     padding: 10px;
     gap: 5px;
@@ -270,6 +400,17 @@ h2 {
     }
 }
 
+
+
+/* Dark Mode Departments Section */
+body.dark-mode .department-circle {
+    background-color: #d7d7d7d9; /* Darker department circles */
+    color: #f0f0f0; /* Lighter text */
+}
+
+body.dark-mode p{
+    color: #000000;
+}
 /* Departments Section */
 .departments {
     padding: 20px; 
@@ -284,7 +425,7 @@ h2 {
 .department-circle {
     width: 350px;
     height: 270px;
-    background-color: #f1edde; 
+    background-color: #c9d4e6; 
     border: 1px solid #ddd; 
     border-radius: 10px; 
     text-align: center; 
@@ -337,6 +478,23 @@ h2 {
 }
 
 
+
+body.dark-mode .footer {
+    background-color: #d7d7d7d9; /* Dark footer */
+    color: #f0f0f0; /* Lighter text */
+}
+
+body.dark-mode .footer a {
+    color: #000000; /* Lighter link color in footer */
+}
+
+body.dark-mode .footer a:hover {
+    color: #ff5757; /* Hover effect for links in footer */
+}
+
+body.dark-mode .universities{
+    color:#000000 ;
+}
 /* Footer Styles */
 .footer {
     background-color: #003366; 
