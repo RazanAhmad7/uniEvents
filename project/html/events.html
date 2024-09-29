@@ -32,7 +32,20 @@
           id="searchDateInput"
           placeholder="Type to search by Date"
         />
-        <i class="fa-solid fa-magnifying-glass"></i>
+        
+      </div>
+      <!-- 
+      
+      -->
+      <div class="search-button">
+        <input type="submit" value="Search" onclick="searchByFaculty()" />
+      </div>
+    </div>
+
+    <!-- Event Cards section -->
+    <div class="title-div">
+      <div>
+        <h1>Events Center</h1>
       </div>
       <div class="select-category">
         <select name="categories" id="searchByFaculty">
@@ -46,17 +59,8 @@
           <option value="Faculty of Engineering">Faculty of Engineering</option>
         </select>
         <i class="fa-solid fa-caret-down"></i>
-      </div>
-      <div class="search-button">
-        <input type="submit" value="Search" onclick="searchByFaculty()" />
-      </div>
-    </div>
+      </div> 
 
-    <!-- Event Cards section -->
-    <div class="title-div">
-      <div>
-        <h1>UPCOMING EVENTS</h1>
-      </div>
     </div>
 
     <div class="events-container" id="eventsContainer">
