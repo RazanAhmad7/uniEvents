@@ -22,7 +22,7 @@ function displayContent(page) {
     // Update the current page
     currentPage = page;
   // Logic to display the events for the current page
-  const event = events; // Assuming this is your events array
+  const event = events.events; // Assuming this is your events array
   const start = (currentPage - 1) * eventsPerPage; // Calculate starting index
   const end = start + eventsPerPage; // Calculate ending index
   const eventsToDisplay = event.slice(start, end); // Get events for current page
@@ -192,3 +192,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 })
 
 
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  const searchDiv = document.getElementById("search-div");
+  
+  // If the scroll is greater than 50px, shrink navbar and hide search div
+  if (window.scrollY > 10) {
+    navbar.classList.add("shrink");
+    searchDiv.classList.add("hide");
+  } else {
+    navbar.classList.remove("shrink");
+    searchDiv.classList.remove("hide");
+  }
+});
