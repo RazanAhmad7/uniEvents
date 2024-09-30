@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
@@ -14,16 +15,15 @@
         </div>
         <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Add Admin</a></li>
+              <li><a href="home.html" target="_blank">Home</a></li>
+              <li><a href="events.html" target="_blank" >Events</a></li>
+              <li><a href="signUp.html" target="_blank" >Add Admin</a></li>
             </ul>
           </nav>
     </aside>
     
     <main class="main-content">
       
-      <!-- Cards Section -->
       <section class="cards">
         <div class="card" id="card1">
           <h3>Total IT Events</h3>
@@ -39,21 +39,19 @@
         </div>
       </section>
 
-      <!-- Search Bar -->
-      <section>
-        <input type="text" id="searchTitleInput" placeholder="Search events by title..." />
-        <input type="date" id="searchDateInput" placeholder="Search events by date..." />
-      </section>
-
-      
+      <br>
       <header>
-        <h1>Admin Dashboard</h1>
-        <br>
-        <button id="addEventButton">Add Event</button>
+        <h1>Upcoming Events</h1>
       </header>
-      <!-- Table Section -->
+      
       <section class="table">
-        <h2>Upcoming Events</h2>
+        <div class="seperate">
+            <section>
+                <input type="text" id="searchTitleInput" placeholder="Search events by title..." />
+                <input type="date" id="searchDateInput" placeholder="Search events by date..." />
+            </section>
+            <button id="addEventButton">Add Event</button>
+        </div>
         <table id="eventsTable">
           <thead>
             <tr>
@@ -66,14 +64,14 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Data will be injected here by JavaScript -->
+
           </tbody>
         </table>
       </section>
     </main>
   </div>
 
-  <!-- Add/Edit Event Modal -->
+
   <div id="eventModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -86,21 +84,21 @@
         <input type="date" id="date" required><br>
         <label for="location">Location:</label>
         <input type="text" id="location" required><br>
-        <label for="time">Time:</label>
-        <input type="time" id="time" required><br>
+        <label for="startTime">Start Time</label>
+        <input type="time" id="startTime" name="startTime" required>
+        <label for="endTime">End Time</label>
+        <input type="time" id="endTime" name="endTime" required>
         <label for="category">Category:</label>
         <select id="category" required>
           <option value="it">IT</option>
           <option value="med">Medical</option>
           <option value="eng">Engineering</option>
-        </select><br>
-        <!-- New Image Input Field -->
+        </select>
+        <br>
         <label for="image">Upload Image:</label>
         <input type="file" id="image" accept="image/*"><br>
-
-        <!-- Image Preview -->
-        <img id="imagePreview" src="#" alt="Image Preview" style="display:none; max-width: 100px; max-height: 100px;"><br>
-
+        <img id="imagePreview" src="#" alt="Image Preview" style="display:none; max-width: 50px; max-height: 150px;">
+        <br>
         <button type="submit">Save</button>
       </form>
     </div>
