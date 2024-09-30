@@ -164,7 +164,7 @@ body.dark-mode .nav-links a:hover {
 
 
 body.dark-mode .details-container {
-    max-width: 80%;
+
     height: auto;
     border-radius: 10px;
     margin: 100px auto;
@@ -177,34 +177,46 @@ body.dark-mode .details-container {
 }
 
 .details-container {
-    max-width: 90%;
-    height: auto;
+    max-width: 85%;
     border-radius: 10px;
     margin: 100px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    background-color: #c9d4e6;
-  padding-bottom: 3rem;
-}
-
-.details-box {
-    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 90px;
+    background-color: #c9d4e6;
+    padding-bottom: 3rem;
+}
+.right{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+.details-box {
+    
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.details-box:first-child(1) {
+    grid-column: span 2; /* Spans 2 columns */
+    background-color: #000000;
+    
 }
 
 .details-container .image {
-    width: 100%; 
-    margin-bottom: 20px;/
+    width: 90%; 
+    
 }
 
 .details-container .image img {
     width: 100%;
-    height: auto; 
+    height: 500px; 
+    margin-left: 50px;
+    margin-top: 15px;
     object-fit: cover; 
     border-radius: 5px;
     box-shadow: 8px 8px 8px rgba(60, 45, 45, 0.1);
@@ -220,22 +232,20 @@ body.dark-mode .details-container {
 /* Updated Title Design */
 .details-container .title {
     width: 100%; 
-    margin: 40px 0; 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    background-color: #E9ecef; 
-    padding: 15px; 
+    margin: 30px 0;  
     border-radius: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .details-container .title h1 {
-    font-size: 28px;
+    font-size: 2.5em;
     color: black;
     font-weight: bold;
-    text-align: center; 
     width: 100%;
-    margin: 0; 
+    text-align: center;
+    
 }
 
 /* Cards for Date, Time, and Location */
@@ -247,15 +257,16 @@ body.dark-mode .details-container {
     flex-wrap: wrap; /* Allow wrapping for responsiveness */
     justify-content: center; 
     width: 100%; 
-    margin: 20px 0; 
+    padding: 10px 30px; 
 }
 
 .info-card {
     flex: 1 1 200px; /* Allow the card to grow and shrink, with a minimum width of 200px */
     background-color: #E9ecef; 
+    height: 40px;
     border-radius: 10px; 
     padding: 15px; 
-    margin: 10px; /* Reduce margin for better spacing */
+    margin: 5px; /* Reduce margin for better spacing */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     display: flex; 
     align-items: center; 
@@ -289,10 +300,11 @@ body.dark-mode .details-container {
 }
 
 .details-container .full-desc p {
-    font-size: 20px;
+    font-size: 19px;
     color: #1e1c1c;
-    line-height: 1.8;
+    line-height: 1;
     text-align: justify;
+    padding: 0px 20px;
 }
 
 .fa-calendar, .fa-location-dot {
