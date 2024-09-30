@@ -10,15 +10,22 @@
     />
   </head>
   <body>
-    <div class="navWithSearch" id="navWithSearch">
-
+ 
     
     <!-- Navigation bar section -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="container">
         <a href="#" class="logo">
           <img src="../assets/logo.webp" alt="Logo" class="logo-img" />
         </a>
+        <div class="search-div">
+              <input
+                type="date"
+                id="searchDateInput"
+                placeholder="Type to search by Date"
+              />
+              <input type="submit" value="Search" onclick="searchByFaculty()" />
+          </div>
         <ul class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#">Events</a></li>
@@ -28,28 +35,12 @@
     </nav>
 
     <!-- Search section -->
-    <div class="search-div">
-      <div class="search-date">
-        <input
-          type="date"
-          id="searchDateInput"
-          placeholder="Type to search by Date"
-        />
-        
-      </div>
-      
-      <div class="search-button">
-        <input type="submit" value="Search" onclick="searchByFaculty()" />
-      </div>
-    </div>
 
-</div>
 
     <!-- Event Cards section -->
     <div class="title-div">
-      <div>
         <h1>Events Center</h1>
-      </div>
+      
       <div class="select-category">
         <select name="categories" id="searchByFaculty">
           <option value="" disabled selected>
