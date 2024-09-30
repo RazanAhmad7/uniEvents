@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCards(events); // Update card totals
   }
 
+  document.getElementById('image').addEventListener('change', function(event) {
+      const reader = new FileReader();
+      
+      reader.onload = function() {
+          const preview = document.getElementById('imagePreview');
+          preview.src = reader.result;
+          preview.style.display = 'block'; // Show the preview
+      };
+      
+      // Read the uploaded file as a data URL
+      reader.readAsDataURL(event.target.files[0]);
+  });
+
   function populateEvents(events) {
     const eventsTableBody = document.querySelector('#eventsTable tbody');
     eventsTableBody.innerHTML = ''; // Clear table
@@ -29,8 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <td>${event.time}</td>
         <td>${event.category.toUpperCase()}</td>
         <td>
-          <button class="edit-btn" data-id="${event.id}">Edit</button>
-          <button class="delete-btn" data-id="${event.id}">Delete</button>
+          <div class="action-buttons">
+              <button class="edit-btn" data-id="${event.id}">Edit</button>
+              <button class="delete-btn" data-id="${event.id}">Delete</button>
+          </div>
         </td>
       `;
       eventsTableBody.appendChild(row);
@@ -98,14 +113,32 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function deleteEvent(eventId) {
-    const confirmDelete = confirm("Are you sure you want to delete this event?");
-    if (confirmDelete) {
-      events = events.filter(event => event.id != eventId); // Filter out the event to be deleted
-      localStorage.setItem('events', JSON.stringify(events)); // Update local storage
-      populateEvents(events); // Refresh the table
-      updateCards(events); // Update card totals
-    }
-  }
+      // Show SweetAlert confirmation dialog before deleting the event
+      Swal.fire({
+          title: 'Are you sure?',
+          text: "Do you really want to delete this event? This action cannot be undone.",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+          if (result.isConfirmed) {
+          // If confirmed, proceed with deletion
+          events = events.filter(event => event.id != eventId); // Filter out the event to be deleted
+          localStorage.setItem('events', JSON.stringify(events)); // Update local storage
+          populateEvents(events); // Refresh the table
+          updateCards(events); // Update card totals
+          // Show SweetAlert success message after deletion
+          Swal.fire({
+              title: 'Deleted!',
+              text: 'The event has been deleted.',
+              icon: 'success',
+              confirmButtonText: 'OK'
+          });
+          }
+      });
+}
 
   // Modal functionality
   const modal = document.getElementById('eventModal');
@@ -118,37 +151,41 @@ document.addEventListener('DOMContentLoaded', function () {
   window.onclick = event => { if (event.target == modal) closeModalFunc(); };
 
   function openModal(eventToEdit = null) {
-    modal.style.display = "block";
-    document.getElementById('modalTitle').textContent = eventToEdit ? "Edit Event" : "Add Event";
-    document.getElementById('eventId').value = eventToEdit ? eventToEdit.id : '';
-    document.getElementById('title').value = eventToEdit ? eventToEdit.title : '';
-    document.getElementById('date').value = eventToEdit ? eventToEdit.date : '';
-    document.getElementById('location').value = eventToEdit ? eventToEdit.location : '';
-    document.getElementById('time').value = eventToEdit ? eventToEdit.time : '';
-    document.getElementById('category').value = eventToEdit ? eventToEdit.category : '';
-    const imagePreview = document.getElementById('imagePreview');
-    if (eventToEdit && eventToEdit.image) {
-      imagePreview.src = eventToEdit.image;
-      imagePreview.style.display = "block";
-    } else {
-      imagePreview.style.display = "none"; // Hide if no image
-    }
-  }
-
-  document.getElementById('image').addEventListener('change', function(event) {
+      modal.style.display = "flex";
+      document.getElementById('modalTitle').textContent = eventToEdit ? "Edit Event" : "Add Event";
+      document.getElementById('eventId').value = eventToEdit ? eventToEdit.id : '';
+      document.getElementById('title').value = eventToEdit ? eventToEdit.title : '';
+      document.getElementById('date').value = eventToEdit ? eventToEdit.date : '';
+      document.getElementById('location').value = eventToEdit ? eventToEdit.location : '';
+      document.getElementById('startTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[0]) : '';
+      document.getElementById('endTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[1]) : '';
+      document.getElementById('category').value = eventToEdit ? eventToEdit.category : '';
+      const imagePreview = document.getElementById('imagePreview');
+      if (eventToEdit && eventToEdit.image) {
+          imagePreview.src = eventToEdit.image;
+          imagePreview.style.display = "block";
+      } else {
+          imagePreview.style.display = "none"; // Hide if no image
+      }
+} document.getElementById('image').addEventListener('change', function(event) {
     const reader = new FileReader();
     reader.onload = function() {
       const preview = document.getElementById('imagePreview');
       preview.src = reader.result;
       preview.style.display = 'block'; // Show the preview
     };
-    reader.readAsDataURL(event.target.files[0]); // Convert image to Base64 string
-  });
+  reader.readAsDataURL(event.target.files[0]); // Convert image to Base64 string
+});
 
   function closeModalFunc() {
     modal.style.display = "none";
     eventForm.reset();
+    document.getElementById('imagePreview').style.display = "none"; // Hide the image preview
   }
+
+  window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeModalFunc();
+  });
 
   eventForm.onsubmit = function(event) {
     event.preventDefault();
@@ -158,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
       title: document.getElementById('title').value,
       date: document.getElementById('date').value,
       location: document.getElementById('location').value,
-      time: document.getElementById('time').value,
+      time: formatTime12(document.getElementById('startTime').value) + ' - ' + formatTime12(document.getElementById('endTime').value), // Store start-end time
       category: document.getElementById('category').value,
       image: document.getElementById('imagePreview').src // Save the image data (Base64)
     };
@@ -167,14 +204,43 @@ document.addEventListener('DOMContentLoaded', function () {
       // Edit existing event
       const index = events.findIndex(e => e.id == eventId);
       events[index] = newEvent; // Update event in the array
+      Swal.fire({
+      title: 'Event Updated!',
+      text: 'The event has been successfully updated.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+  });
     } else {
       // Add new event
       events.push(newEvent);
+      // Show SweetAlert for successful addition
+      Swal.fire({
+      title: 'Event Added!',
+      text: 'The event has been successfully added.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+  });
     }
 
     localStorage.setItem('events', JSON.stringify(events)); // Update local storage with new/edited events
     populateEvents(events); // Refresh table
     updateCards(events); // Refresh card totals
     closeModalFunc();
+  }
+  function formatTime12(time24) {
+      const [hours, minutes] = time24.split(':');
+      const period = hours >= 12 ? 'PM' : 'AM';
+      let hours12 = hours % 12 || 12; // Convert 0 or 24 to 12 in 12-hour format
+      return `${hours12}:${minutes} ${period}`;
+  }
+  function convertTo24Hour(time12) {
+      const [time, modifier] = time12.split(' ');
+      let [hours, minutes] = time.split(':');
+      if (modifier === 'PM' && hours !== '12') {
+      hours = parseInt(hours, 10) + 12;
+      } else if (modifier === 'AM' && hours === '12') {
+      hours = '00';
+      }
+      return `${hours}:${minutes}`;
   }
 });

@@ -496,101 +496,126 @@ body.dark-mode .universities{
     color:#000000 ;
 }
 /* Footer Styles */
-.footer {
+body.dark-mode .footer {
+    background-color: #d7d7d7d9; /* Dark footer */
+    color: #f0f0f0; /* Lighter text */
+  }
+  
+  body.dark-mode .footer a {
+    color: #000000; /* Lighter link color in footer */
+  }
+  
+  body.dark-mode .footer a:hover {
+    color: #ff5757; /* Hover effect for links in footer */
+  }
+  
+  body.dark-mode .universities{
+    color:#000000 ;
+  }
+  body.dark-mode p{
+    color: #ff5757;
+  }
+  body.dark-mode .footer h4{
+  color:#000000
+  }
+  
+  /* Footer Styles */
+  .footer {
     background-color: #003366; 
     color: white; 
     padding: 20px 0; 
     position: relative;
-}
-
-.footer-container {
+  }
+  
+  .footer-container {
     display: flex;
     max-width: 1200px; 
     margin: 0 auto;
-}
-
-.left-section {
+  }
+  
+  .left-section {
     width: 40%; 
     padding-right: 20px;
-}
-
-.right-section {
+  }
+  
+  .right-section {
     width: 60%; 
     display: flex;
     justify-content: space-between;
-}
-
-.quick-links,
-.universities {
+  }
+  
+  .quick-links,
+  .universities {
     flex: 1; 
     padding-left: 10px;
-}
-
-h4 {
+  }
+  
+  h4 {
     margin-bottom: 10px; 
     font-weight: bold;
     
-}
-
-ul {
+  }
+  
+  ul {
     list-style-type: none; 
     padding: 0; 
-}
-
-ul li {
+  }
+  
+  ul li {
     margin: 5px 0; 
-}
-
-ul li a {
+  }
+  
+  ul li a {
     color: white; 
     text-decoration: none; 
     font-size: 16px;
     
-}
-
-ul li a:hover {
+  }
+  
+  ul li a:hover {
     text-decoration: underline; 
-}
-
-
-/* Social Media Styles */
-.social-media {
+  }
+  
+  
+  /* Social Media Styles */
+  .social-media {
     margin-top: 20px;
- }
-
-.social-icon {
+  }
+  
+  .social-icon {
     margin-right: 15px;
-}
-
-.social-icon img {
+  }
+  
+  .social-icon img {
     width: 30px; 
     height: auto; 
-}
-
-/* University Icons */
-.uni-icon {
+  }
+  
+  /* University Icons */
+  .uni-icon {
     width: 20px; 
     height: auto; 
     vertical-align: middle; 
     margin-right: 5px; 
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
     .footer-container {
         flex-direction: column;
     }
-
+  
     .left-section,
     .right-section {
         width: 100%;
         padding: 20px 0;
     }
-
+  
     .quick-links,
     .universities {
         padding: 0;
     }
-
-}
-
+  
+  }
+  
+  
