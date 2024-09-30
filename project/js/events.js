@@ -22,7 +22,7 @@ function displayContent(page) {
     // Update the current page
     currentPage = page;
   // Logic to display the events for the current page
-  const event = eventss; // Assuming this is your events array
+  const event = events; // Assuming this is your events array
   const start = (currentPage - 1) * eventsPerPage; // Calculate starting index
   const end = start + eventsPerPage; // Calculate ending index
   const eventsToDisplay = event.slice(start, end); // Get events for current page
@@ -206,4 +206,21 @@ function displayChoosenEvents(array) {
 document.addEventListener('DOMContentLoaded', function(event) {
   document.querySelector('body').style.opacity = 1
 })
+
+
+
+const toggleButton = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+toggleButton.addEventListener('click', () => {
+    // Toggle dark-mode class on body
+    body.classList.toggle('dark-mode');
+
+    // Update the button text based on current mode
+    if (body.classList.contains('dark-mode')) {
+        toggleButton.textContent = 'Light Mode';
+    } else {
+        toggleButton.textContent = 'Dark Mode';
+    }
+});
 

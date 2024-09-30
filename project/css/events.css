@@ -6,16 +6,90 @@
 }
 
 body {
-  opacity: 0;
-  transition: opacity 1s;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+#dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #c9d4e6;
+  padding: 5px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+#dark-mode-toggle:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #dark-mode-toggle {
+  background-color: #ff5757;
+}
+
+body.dark-mode p.eventLocation{
+  color: #000000;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  #dark-mode-toggle {
+      top: 10px;
+      right: 10px;
+      padding: 3px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #dark-mode-toggle {
+      top: 5px;
+      right: 5px;
+      padding: 2px 6px;
+  }
+}
+
+
+
+/* Dark Mode body */
+body.dark-mode{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #444; 
+}
+body.dark-mode .navbar {
+  background-color: #d7d7d7d9; 
+  color: white; 
+}
+
+
+/* Dark Mode Navigation Links */
+body.dark-mode .nav-links a {
+  color: rgb(0, 0, 0); /* Dark mode link color */
+}
+
+
+.nav-links a:hover {
+  color: #f1edde; 
+  transition: all 0.4s ease;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #ff5757;
+}
+
+/* Main Content Area */
 .content {
   flex-grow: 1;
+  padding: 20px;
+  margin-top: 80px; /* Account for the fixed navbar */
+  transition: background-color 0.5s, color 0.5s;
 }
+
+
 /* Navbar Styles */
 .navbar {
   background-color: #003366;
@@ -102,6 +176,10 @@ body {
     background-color: #c9d4e6;
   }
 
+  body.dark-mode .search-button input[type="submit"]:hover {
+    background-color: #d7d7d7d9;
+  }
+
 .nav-links {
   width: 40%;
   list-style-type: none;
@@ -123,7 +201,11 @@ body {
   transition: all 0.4s ease;
 }
 
-  
+body.dark-mode .title-div h1 {
+  margin-left: 4px;
+  font-size: 1.5em;
+  color: #ff5757;}
+
   
   @media (min-width: 100px) and (max-width: 890px) {
     .navbar {
@@ -187,6 +269,10 @@ body {
     font-size: 1.5em;
     color: #003366;
   }
+  body.dark-mode .title-div h1 {
+    margin-left: 4px;
+    font-size: 1.5em;
+    color: #ff5757;}
   
   body .title-div .select-category select {
     width: 200px;
@@ -259,10 +345,14 @@ body {
 }
 
 .select-category select:focus {
-  border-color: #007bff;
+  border-color: rgba(0, 123, 255, 0.2);
   box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
 }
 
+body.dark-mode .select-category select:focus {
+  border-color: #888;
+  box-shadow: 0 2px 6px #ff5757;
+}
 
 /* Cards of Events Page Style  */
 .events-container {
@@ -288,6 +378,19 @@ body {
   border-radius: 20px;
   padding: 10px;
   background-color: #c9d4e6;
+  height: 350px;
+  width: 350px;
+}
+
+body.dark-mode .eventCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #d7d7d7d9;
   height: 350px;
   width: 350px;
 }
@@ -331,11 +434,19 @@ body {
   
 }
 
+
+
 .eventDateTime i, .eventLocation i {
   color: #ff4747;
   margin-left: 10px;
 }
 
+body.dark-mode .showMore {
+  position: absolute;
+  bottom: 5;
+  font-size: 0.7em;
+  color: #ff4747;
+}
 .showMore {
   position: absolute;
   bottom: 5;
@@ -350,6 +461,15 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+body.dark-mode .pagination-section a {
+  color: #000000;
+  padding: 10px 15px;
+  margin: 0 2px;
+  text-decoration: none;
+  background-color: #d7d7d7d9;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 .pagination-section a {
@@ -367,66 +487,101 @@ body {
   margin: 25px 10px;
   font-size: 20px;
 }
+body.dark-mode .pagination-section i{
+  color: #ff5757;
+  margin: 25px 10px;
+  font-size: 20px;
+}
 
 .pagination-section a:hover {
   background-color: #003366;
   color: #fff;
 }
+body.dark-mode .pagination-section a:hover {
+  background-color: #ff5757;
+  color: #fff;
+}
+
+body.dark-mode .footer {
+  background-color: #d7d7d7d9; /* Dark footer */
+  color: #f0f0f0; /* Lighter text */
+}
+
+body.dark-mode .footer a {
+  color: #000000; /* Lighter link color in footer */
+}
+
+body.dark-mode .footer a:hover {
+  color: #ff5757; /* Hover effect for links in footer */
+}
+
+body.dark-mode .universities{
+  color:#000000 ;
+}
+body.dark-mode p{
+  color: #ff5757;
+}
+body.dark-mode .footer h4{
+color:#000000
+}
 
 /* Footer Styles */
 .footer {
-  background-color: #003366;
-  color: white;
-  padding: 20px 0;
+  background-color: #003366; 
+  color: white; 
+  padding: 20px 0; 
   position: relative;
 }
 
 .footer-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
 .left-section {
-  width: 40%;
+  width: 40%; 
   padding-right: 20px;
 }
 
 .right-section {
-  width: 60%;
+  width: 60%; 
   display: flex;
   justify-content: space-between;
 }
 
 .quick-links,
 .universities {
-  flex: 1;
+  flex: 1; 
   padding-left: 10px;
 }
 
 h4 {
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
   font-weight: bold;
+  
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; 
+  padding: 0; 
 }
 
 ul li {
-  margin: 5px 0;
+  margin: 5px 0; 
 }
 
 ul li a {
-  color: white;
-  text-decoration: none;
+  color: white; 
+  text-decoration: none; 
   font-size: 16px;
+  
 }
 
 ul li a:hover {
-  text-decoration: underline;
+  text-decoration: underline; 
 }
+
 
 /* Social Media Styles */
 .social-media {
@@ -438,41 +593,34 @@ ul li a:hover {
 }
 
 .social-icon img {
-  width: 30px;
-  height: auto;
+  width: 30px; 
+  height: auto; 
 }
 
 /* University Icons */
 .uni-icon {
-  width: 20px;
-  height: auto;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-
-
-
-.page-number.active {
-  background-color: #053e77;
-  color: white;
-  font-weight: bold;
+  width: 20px; 
+  height: auto; 
+  vertical-align: middle; 
+  margin-right: 5px; 
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .footer-container {
-    flex-direction: column;
+      flex-direction: column;
   }
 
   .left-section,
   .right-section {
-    width: 100%;
-    padding: 20px 0;
+      width: 100%;
+      padding: 20px 0;
   }
 
   .quick-links,
   .universities {
-    padding: 0;
+      padding: 0;
   }
+
 }
+
