@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('title').value = eventToEdit ? eventToEdit.title : '';
       document.getElementById('date').value = eventToEdit ? eventToEdit.date : '';
       document.getElementById('location').value = eventToEdit ? eventToEdit.location : '';
+      document.getElementById('description').value = eventToEdit ? eventToEdit.fullDesc : '';
       document.getElementById('startTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[0]) : '';
       document.getElementById('endTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[1]) : '';
       document.getElementById('category').value = eventToEdit ? eventToEdit.category : '';
@@ -167,14 +168,15 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
           imagePreview.style.display = "none"; // Hide if no image
       }
-} document.getElementById('image').addEventListener('change', function(event) {
+} 
+document.getElementById('image').addEventListener('change', function(event) {
     const reader = new FileReader();
     reader.onload = function() {
       const preview = document.getElementById('imagePreview');
       preview.src = reader.result;
       preview.style.display = 'block'; // Show the preview
     };
-  reader.readAsDataURL(event.target.files[0]); // Convert image to Base64 string
+    reader.readAsDataURL(event.target.files[0]); // Convert image to Base64 string
 });
 
   function closeModalFunc() {
@@ -189,15 +191,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   eventForm.onsubmit = function(event) {
     event.preventDefault();
+
     const eventId = document.getElementById('eventId').value;
+    const imagePreview = document.getElementById('imagePreview').src; // Fetch the current image from the preview
+
     const newEvent = {
       id: eventId || Date.now().toString(), // Use a timestamp as a simple ID for new events
       title: document.getElementById('title').value,
       date: document.getElementById('date').value,
       location: document.getElementById('location').value,
+      fullDesc: document.getElementById('description').value,
       time: formatTime12(document.getElementById('startTime').value) + ' - ' + formatTime12(document.getElementById('endTime').value), // Store start-end time
       category: document.getElementById('category').value,
-      image: document.getElementById('imagePreview').src // Save the image data (Base64)
+      image: imagePreview // Save the image data (Base64)
     };
 
     if (eventId) {
