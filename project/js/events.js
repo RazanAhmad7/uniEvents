@@ -40,6 +40,8 @@ function displayContent(page) {
     // Update pagination
     updatePagination(event.length);
 
+    highlightActivePage(currentPage);
+
     // Fade in the content after it is updated
     document.querySelector('#eventsContainer').style.opacity = 1;
   }, 500); // 500ms matches the fade-out transition duration
@@ -65,6 +67,17 @@ function updatePagination(totalEvents) {
   nextButton.style.display = currentPage === totalPages ? "none" : "inline"; // Hide if on the last page
 }
 
+function highlightActivePage(page) {
+  const pageNumbers = document.querySelectorAll(".page-number");
+  pageNumbers.forEach((pageNumber, index) => {
+    if (index + 1 === page) {
+      pageNumber.classList.add("active");
+    } else {
+      pageNumber.classList.remove("active");
+    }
+  });
+}
+
 // Attach event listeners to the buttons
 document.getElementById("next").addEventListener("click", () => {
   if (currentPage > 1) {
@@ -84,14 +97,18 @@ function createCard(event) {
   cardElement.innerHTML = `
       <div class="eventCard" id="">
       <img src="${event.image}" alt="Event Photo" class="eventImage">
-      <div class="eventDateTime">
-      <i class="fa-regular fa-calendar"></i> ${event.date} ${event.time}
-      </div>
+      
       <div class="eventDetails">
           <h3>${event.title}</h3>
+          <div class="eventDateTime">
+          <i class="fa-regular fa-calendar"></i> ${event.date} ${event.time}
+          </div>
           <p class="eventLocation">
               <i class="fa-solid fa-location-dot"></i> ${event.location} 
           </p>
+       </div>
+       <p class="showMore"> click to see the details! </p>
+        </div>
       `;
   card.appendChild(cardElement);
 
@@ -118,8 +135,7 @@ function searchByFaculty() {
 
   // Get the selected value from the input
   const selectedValue = document.getElementById("searchByFaculty").value;
-  console.log(selectedValue);
-
+ 
   // Map selected faculty to corresponding category
   switch (selectedValue) {
     case "Faculty of Information Technology":
@@ -135,9 +151,9 @@ function searchByFaculty() {
       console.log("No valid faculty selected");
       return; // Exit if no valid faculty is selected
   }
-  for (key in events) {
-      if (faculty === events[key].category) {
-      specificEvents.push(events[key]);
+  for (key in events.events) {
+      if (faculty === events.events[key].category) { 
+      specificEvents.push(events.events[key]);
     }
   }
 
@@ -191,17 +207,3 @@ document.addEventListener('DOMContentLoaded', function(event) {
   document.querySelector('body').style.opacity = 1
 })
 
-
-window.addEventListener("scroll", function () {
-  const navbar = document.getElementById("navbar");
-  const searchDiv = document.getElementById("search-div");
-  
-  // If the scroll is greater than 50px, shrink navbar and hide search div
-  if (window.scrollY > 10) {
-    navbar.classList.add("shrink");
-    searchDiv.classList.add("hide");
-  } else {
-    navbar.classList.remove("shrink");
-    searchDiv.classList.remove("hide");
-  }
-});
