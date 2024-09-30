@@ -47,13 +47,13 @@ body {
 }
 
 header {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 #searchTitleInput, #searchDateInput {
     width: 48%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -86,6 +86,11 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    table-layout: auto; /* Ensure columns shrink to fit content */
+}
+table thead{
+    background-color: #cdcdcd;
+    color: #000000;
 }
 
 table th, table td {
@@ -122,7 +127,30 @@ button:hover {
 .delete-btn:hover {
     background-color: #c82333; /* Darker red on hover */
 }
+table th:nth-child(1), /* Title column */
+table td:nth-child(1) {
+    width: 1%; /* Minimal width */
+    white-space: nowrap; /* Prevent wrapping */
+}
 
+table th:nth-child(3), /* Location column */
+table td:nth-child(3) {
+    width: 1%; /* Minimal width */
+    white-space: nowrap; /* Prevent wrapping */
+}
+.action-buttons {
+    display: flex; /* Use flexbox to keep buttons in the same line */
+    gap: 10px; /* Add some space between the buttons */
+}
+
+.action-buttons button {
+    margin: 0; /* Ensure no extra margin is added around buttons */
+    padding: 8px 12px; /* Optional: Adjust padding for uniform size */
+}
+.seperate{
+    display: grid;
+    grid-template-columns: 7fr 1fr ;
+}
 @media (max-width: 768px) {
     .cards {
     flex-direction: column;
@@ -143,36 +171,101 @@ button:hover {
 }
 
 /* Modal styles */
+
+/* Updated Modal styles */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 40%;
-  border-radius: 5px;
+  padding: 30px;
+  border-radius: 8px;
+  width: 50%; /* Change width to 50% */
+  max-width: 500px; /* Keep a max-width for larger screens */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: auto; /* Center the modal */
 }
 
 .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
   color: #aaa;
-  float: right;
-  font-size: 28px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+#modalTitle {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#eventForm label {
+  display: block;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+#eventForm input,
+#eventForm select {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+#eventForm input[type="file"] {
+  border: none;
+}
+
+#imagePreview {
+  display: none; /* Hide initially */
+  margin: 10px 0; /* Space above and below */
+  border-radius: 5px;
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: cover;
+  border: 1px solid #ddd; /* Optional */
+}
+
+#eventForm button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px; /* Ensure there's space above */
+  background-color: #28a745; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#eventForm button:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Adjust for mobile */
+  }
 }
