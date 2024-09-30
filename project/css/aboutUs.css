@@ -21,6 +21,15 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+     justify-content: center;
+     align-items: center; 
+     gap: 5px;
+}
+
+#dark-mode-toggle img {
+  width: 20px; /* Adjust the image size */
+  height: 20px;
 }
 
 #dark-mode-toggle:hover {

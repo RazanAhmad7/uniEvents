@@ -1,4 +1,24 @@
 
+
+// var events = JSON.parse(localStorage.getItem("events"));
+
+
+// function openChooosedCat(element) {
+//     let specificEvents = [];
+
+//     // Filter events based on the selected category
+//     for (let key in events) {
+//         if (element.id === events[key].category) { 
+//             specificEvents.push(events[key]);
+//         }
+//     }
+
+//     // Store the filtered events in localStorage
+//     localStorage.setItem("filteredEvents", JSON.stringify(specificEvents));
+//     window.location.href = "events.html";
+    
+// }
+
 document.addEventListener("DOMContentLoaded", function() {
   const slides = document.querySelectorAll(".slider img");
   const navLinks = document.querySelectorAll(".slider-nav a");
@@ -32,20 +52,4 @@ document.addEventListener("DOMContentLoaded", function() {
   // Set interval for the slider to move every 2 seconds
   setInterval(nextSlide, 2000); // 2000 milliseconds = 2 seconds
 });
-
-
-  const toggleButton = document.getElementById('dark-mode-toggle');
-  const body = document.body;
-
-  toggleButton.addEventListener('click', () => {
-      // Toggle dark-mode class on body
-      body.classList.toggle('dark-mode');
-
-      // Update the button text based on current mode
-      if (body.classList.contains('dark-mode')) {
-          toggleButton.textContent = 'Light Mode';
-      } else {
-          toggleButton.textContent = 'Dark Mode';
-      }
-  });
 

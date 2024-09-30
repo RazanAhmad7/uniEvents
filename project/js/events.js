@@ -86,7 +86,7 @@ document.getElementById("next").addEventListener("click", () => {
 });
 
 document.getElementById("perv").addEventListener("click", () => {
-  if (currentPage < Math.ceil(events.events.length / eventsPerPage)) {
+  if (currentPage < Math.ceil(events.length / eventsPerPage)) {
     displayContent(currentPage + 1);
   }
 });
@@ -97,17 +97,16 @@ function createCard(event) {
   cardElement.innerHTML = `
       <div class="eventCard" id="">
       <img src="${event.image}" alt="Event Photo" class="eventImage">
-      
-      <div class="eventDetails">
-          <h3>${event.title}</h3>
-          <div class="eventDateTime">
+      <div class="eventDateTime">
           <i class="fa-regular fa-calendar"></i> ${event.date} ${event.time}
           </div>
-          <p class="eventLocation">
-              <i class="fa-solid fa-location-dot"></i> ${event.location} 
+      <div class="eventDetails">
+          <h3>${event.title}</h3>
+          <p class="eventDesc">
+              ${event.shortDesc}
           </p>
        </div>
-       <p class="showMore"> click to see the details! </p>
+       <p class="showMore">See more</p>
         </div>
       `;
   card.appendChild(cardElement);
@@ -129,35 +128,47 @@ function showDetails(clickedEvent) {
   window.location.href = "eventDetails.html"; // Redirect to a page where details will be shown
 }
 
+document.getElementById("searchByFaculty").addEventListener("change", searchByFaculty);
 function searchByFaculty() {
+  
   let specificEvents = [];
-  let faculty;
+  let dept;
 
   // Get the selected value from the input
   const selectedValue = document.getElementById("searchByFaculty").value;
  
-  // Map selected faculty to corresponding category
+  // Map selected dept to corresponding category
   switch (selectedValue) {
-    case "Faculty of Information Technology":
-      faculty = "it";
+    case "it":
+      dept = "it";
       break;
-    case "Faculty of Medicine":
-      faculty = "med";
+    case "med":
+      dept = "med";
       break;
-    case "Faculty of Engineering":
-      faculty = "eng";
+    case "eng":
+      dept = "eng";
       break;
+    case "all" :
+      dept = "all" ; 
+      break; 
     default:
-      console.log("No valid faculty selected");
-      return; // Exit if no valid faculty is selected
+      return; // Exit if no valid dept is selected
   }
-  for (key in events.events) {
-      if (faculty === events.events[key].category) { 
-      specificEvents.push(events.events[key]);
+  console.log(dept)
+  if(dept === "all")
+  {
+    displayContent(1);
+  }
+  else{
+  for (key in events) {
+      if (dept === events[key].category) { 
+      specificEvents.push(events[key]);
     }
   }
-
   displayChoosenEvents(specificEvents);
+  }
+
+  
 }
 const searchDateInput = document.getElementById('searchDateInput');
 searchDateInput.addEventListener('change', filterEvents);
@@ -187,6 +198,21 @@ function filterEvents() {
 
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//   const eventsContainer = document.getElementById("eventsContainer");
+
+//   if (!eventsContainer) {
+//       console.error("Events container not found!");
+//       return;
+//   }
+
+//   // Retrieve the filtered events from localStorage
+//   const selectedEvents = JSON.parse(localStorage.getItem("filteredEvents"));
+
+//   // Display the selected events
+//   displayChoosenEvents(selectedEvents);
+// });
+
 
 
 function displayChoosenEvents(array) {
@@ -209,18 +235,29 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-const toggleButton = document.getElementById('dark-mode-toggle');
-const body = document.body;
 
-toggleButton.addEventListener('click', () => {
-    // Toggle dark-mode class on body
-    body.classList.toggle('dark-mode');
+function filterEvents() {
+  // Get search terms
+  const dateSearchTerm = searchDateInput.value; // This is in YYYY-MM-DD format
 
-    // Update the button text based on current mode
-    if (body.classList.contains('dark-mode')) {
-        toggleButton.textContent = 'Light Mode';
-    } else {
-        toggleButton.textContent = 'Dark Mode';
-    }
-});
+  // Log search terms to see if they are captured correctly
+ 
+  console.log('Date Search Term:', dateSearchTerm);
+
+  // Filter events based on title and date search terms
+  const filteredEvents = events.filter(event => {
+    const matchesDate = dateSearchTerm ? event.date === dateSearchTerm : true; // If no date is provided, return true for all
+
+    // Log each event to see how it matches the filter
+    console.log(`Event: ${event.title} Matches Date: ${matchesDate}`);
+
+    return matchesDate; // Return events that match both criteria
+  });
+
+  // Log filtered events to verify if filtering works
+  console.log('Filtered Events:', filteredEvents);
+
+  // Populate the table with filtered events
+  displayChoosenEvents(filteredEvents);
+}
 

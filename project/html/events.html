@@ -12,28 +12,24 @@
   <body>
  
     
-    <!-- Navigation bar section -->
-    <nav class="navbar" id="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
       <div class="container">
-        <a href="#" class="logo">
-          <img src="../assets/logo.webp" alt="Logo" class="logo-img" />
-        </a>
-        <div class="search-div">
-              <input
-                type="date"
-                id="searchDateInput"
-                placeholder="Type to search by Date"
-              />
-              <input type="submit" value="Search" onclick="searchByFaculty()" />
-          </div>
-        <ul class="nav-links">
-          <li><a href="../html/home.html">Home</a></li>
-          <li><a href="../html/events.html">Events</a></li>
-          <li><a href="../html/aboutUs.html">About Us</a></li>
-          <button id="dark-mode-toggle">Dark Mode</button>
-        </ul>
+          <a href="#" class="logo">
+              <img src="../assets/logo.webp" alt="Logo" class="logo-img">
+          </a>
+          <ul class="nav-links">
+              <li><a href="../html/home.html">Home</a></li>
+              <li><a href="../html/events.html">Events</a></li>
+              <li><a href="../html/aboutUs.html">About Us</a></li>
+              <button id="dark-mode-toggle">
+                  <img src="../assets/light-mode_1.png" alt="">
+
+                  Mode</button>
+
+          </ul>
       </div>
-    </nav>
+  </nav>
 
     <!-- Search section -->
 
@@ -41,19 +37,25 @@
     <!-- Event Cards section -->
     <div class="title-div">
         <h1>Events Center</h1>
+        
+          <input
+            type="date"
+            id="searchDateInput"
+            placeholder="Type to search by Date"
+          />
       
       <div class="select-category">
         <select name="categories" id="searchByFaculty">
           <option value="" disabled selected>
-            Select a Faculty
+            Search by Departments
           </option>
-          <option value="Faculty of Information Technology">
-            Faculty of Information Technology
+          <option value="it">
+            Information Technology Department Events
           </option>
-          <option value="Faculty of Medicine">Faculty of Medicine</option>
-          <option value="Faculty of Engineering">Faculty of Engineering</option>
+          <option value="med">Medicine Department Events</option>
+          <option value="eng">Engineering Department Events</option>
+          <option value="all">Return to all Events</option>
         </select>
-        <i class="fa-solid fa-caret-down"></i>
       </div> 
 
     </div>
@@ -95,9 +97,9 @@
           <div class="quick-links">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="../html/home.html">Home</a></li>
+              <li><a href="../html/events.html">Events</a></li>
+              <li><a href="../html/aboutUs.html">About Us</a></li>
             </ul>
           </div>
           <div class="universities">
@@ -114,5 +116,6 @@
 
     <!-- Link to js -->
     <script src="../js/events.js"></script>
+    <script src="../js/mode.js"></script>
   </body>
 </html>

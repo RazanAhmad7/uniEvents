@@ -20,8 +20,11 @@
                 <li><a href="../html/home.html">Home</a></li>
                 <li><a href="../html/events.html">Events</a></li>
                 <li><a href="../html/aboutUs.html">About Us</a></li>
-                <button id="dark-mode-toggle">Dark Mode</button>
-                
+                <button id="dark-mode-toggle">
+                    <img src="../assets/light-mode_1.png" alt="">
+
+                    Mode</button>
+
             </ul>
         </div>
     </nav>
@@ -70,24 +73,24 @@
        <h2>Our Departments</h2>
        <section class="departments">
            <div class="department-circles">
-               <div class="department-circle">
+               <div class="department-circle" id="it" onclick="openChooosedCat(this)">
                    <img src="../assets/it dep.jpg" alt="IT Department" class="circle-image">
                    <div class="department-description">
-                       <h3>IT Department</h3>
+                       <h3 >IT Department</h3>
                        <p>Join us for a day of tech talks, workshops, and networking, exploring the latest trends in AI, cybersecurity, and more.</p>
                    </div>
                </div>
-               <div class="department-circle">
+               <div class="department-circle" id="med" onclick="openChooosedCat(this)">
                    <img src="../assets/med dep.jpg" alt="Medicine Department" class="circle-image">
                    <div class="department-description">
-                       <h3>Medicine Department</h3>
+                       <h3 >Medicine Department</h3>
                        <p>Discover the latest in medical research and innovation through expert talks and collaborative sessions.</p>
                    </div>
                </div>
-               <div class="department-circle">
+               <div class="department-circle" id="eng" onclick="openChooosedCat(this)">
                    <img src="../assets/eng dep.jpg" alt="Engineering Department" class="circle-image">
                    <div class="department-description">
-                       <h3>Engineering Department</h3>
+                       <h3 >Engineering Department</h3>
                        <p>Explore cutting-edge engineering projects and solutions aimed at addressing global challenges.</p>
                    </div>
                </div>
@@ -123,9 +126,9 @@
                 <div class="quick-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="../html/home.html">Home</a></li>
+              <li><a href="../html/events.html">Events</a></li>
+              <li><a href="../html/aboutUs.html">About Us</a></li>
                     </ul>
                 </div>
                 <div class="universities">
@@ -143,5 +146,8 @@
 
 
     <script src="../js/home.js"></script>
+    <script src="../js/mode.js"></script>
+   
+    <!-- <script src="../js/events.js"></script> -->
 </body>
 </html>
