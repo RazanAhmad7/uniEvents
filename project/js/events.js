@@ -22,7 +22,7 @@ function displayContent(page) {
     // Update the current page
     currentPage = page;
   // Logic to display the events for the current page
-  const event = events.events; // Assuming this is your events array
+  const event = eventss; // Assuming this is your events array
   const start = (currentPage - 1) * eventsPerPage; // Calculate starting index
   const end = start + eventsPerPage; // Calculate ending index
   const eventsToDisplay = event.slice(start, end); // Get events for current page
