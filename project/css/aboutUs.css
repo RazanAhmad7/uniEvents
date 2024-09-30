@@ -344,6 +344,9 @@ body.dark-mode .universities{
 body.dark-mode p{
   color: #ff5757;
 }
+body.dark-mode .footer h4{
+color:#000000
+}
 
 /* Footer Styles */
 .footer {
