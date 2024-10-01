@@ -378,6 +378,7 @@ body.dark-mode .select-category select:focus {
   height: 360px;
   width: 350px;
   transition: transform 0.4s; 
+  cursor: pointer;
 }
 .eventCard:hover {
   transform: scale(1.03); 
@@ -475,6 +476,7 @@ body.dark-mode .pagination-section a {
   background-color: #d7d7d7d9;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .pagination-section a {
@@ -485,6 +487,7 @@ body.dark-mode .pagination-section a {
   background-color: #f1edde;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .pagination-section i {

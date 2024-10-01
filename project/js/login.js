@@ -8,21 +8,19 @@ var lastName = document.getElementById("lastName");
 var email = document.getElementById("email");
 var password = document.getElementById("password");
 var confirmPassword = document.getElementById("confirmPassword");
-var phone = document.getElementById("phone");
+
 
 var nameRegex = /^[A-Za-z]{3,30}$/;
 var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 var passwordRegex =
   /^(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,32}$/;
-var phoneRegex = /^\d{10}$/;
+
 
 function validatInputs() {
   if (
     nameRegex.test(firstName.value) &&
     nameRegex.test(lastName.value) &&
-    emailRegex.test(email.value) &&
-    phoneRegex.test(phone.value)
-  ) {
+    emailRegex.test(email.value)) {
     return true;
   } else return false;
 }
@@ -64,12 +62,13 @@ function passConfirmation() {
 var emailError = document.getElementById("email-error");
 var passError = document.getElementById("pass-error");
 var numError = document.getElementById("num-error");
+
 function check(element) {
   var elementValue = element.value;
 
   emailError.innerHTML = " ";
   passError.innerHTML = " ";
-  numError.innerHTML = " ";
+
 
   switch (element.id) {
     case "email": {
@@ -83,13 +82,6 @@ function check(element) {
       if (!passwordRegex.test(elementValue)) {
         passError.innerHTML =
           "Please enter a valid Password, starts with a capital letter, contains at least two numbers and has one special character.";
-      }
-      break;
-    }
-
-    case "phone": {
-      if (!phoneRegex.test(elementValue)) {
-        numError.innerHTML = "Phone number should consist of 10 digits";
       }
       break;
     }
@@ -123,7 +115,6 @@ function storeData() {
         LastName: lastName.value,
         Password: password.value,
         Email: email.value,
-        PhoneNumber: phone.value,
       };
 
       existingUsers.push(newUser);
@@ -135,26 +126,45 @@ function storeData() {
     }
   }
 }
-
 function login() {
-  let errorMsg = document.getElementById("login-error");
-  var existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
 
-  if (!Array.isArray(existingUsers)) {
-    existingUsers = [];
+  // Retrieve stored users from localStorage
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  
+  // Check if the users array is valid
+  if (!Array.isArray(existingUsers) || existingUsers.length === 0) {
+    document.getElementById("login-error").textContent = "No users found. Please register first.";
+    return;
   }
 
+  // Flag to check if user is found
   let userFound = false;
 
+  // Iterate through the users to check for a match
   for (let user of existingUsers) {
-    if (lEmail.value === user.Email && lPass.value === user.Password) {
+    if (user.Email === email && user.Password === password) {
       userFound = true;
+      // Set the logged-in state in localStorage
+      localStorage.setItem("isLoggedIn", "true");
+      
+      // Redirect to dashboard after successful login
       window.location.href = "admin.html";
       break;
     }
   }
 
+  // If no match found, show an error message
   if (!userFound) {
-    errorMsg.innerHTML = "Incorrect Password/Email";
+    document.getElementById("login-error").textContent = "Invalid login credentials";
   }
+}
+
+function logout() {
+  // Remove login status
+  localStorage.removeItem("isLoggedIn");
+
+  // Redirect to the login page
+  window.location.href = "login.html";
 }

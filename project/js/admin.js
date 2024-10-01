@@ -1,3 +1,8 @@
+
+
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  window.location.href = "login.html";
+}
 document.addEventListener('DOMContentLoaded', function () {
   let events = JSON.parse(localStorage.getItem('events')) || []; // Fetch events from local storage or initialize an empty array
 
@@ -158,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('date').value = eventToEdit ? eventToEdit.date : '';
       document.getElementById('location').value = eventToEdit ? eventToEdit.location : '';
       document.getElementById('description').value = eventToEdit ? eventToEdit.fullDesc : '';
+      document.getElementById('shortdescription').value = eventToEdit ? eventToEdit.shortDesc : '';
       document.getElementById('startTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[0]) : '';
       document.getElementById('endTime').value = eventToEdit ? convertTo24Hour(eventToEdit.time.split(' - ')[1]) : '';
       document.getElementById('category').value = eventToEdit ? eventToEdit.category : '';
@@ -201,6 +207,7 @@ document.getElementById('image').addEventListener('change', function(event) {
       date: document.getElementById('date').value,
       location: document.getElementById('location').value,
       fullDesc: document.getElementById('description').value,
+      shortDesc: document.getElementById('shortdescription').value,
       time: formatTime12(document.getElementById('startTime').value) + ' - ' + formatTime12(document.getElementById('endTime').value), // Store start-end time
       category: document.getElementById('category').value,
       image: imagePreview // Save the image data (Base64)
@@ -250,3 +257,12 @@ document.getElementById('image').addEventListener('change', function(event) {
       return `${hours}:${minutes}`;
   }
 });
+
+
+function logout() {
+  // Remove login status from localStorage or sessionStorage
+  localStorage.removeItem("isLoggedIn");
+
+  // Redirect to the login page
+  window.location.href = "login.html";
+}

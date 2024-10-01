@@ -226,8 +226,7 @@ table td:nth-child(3) {
 #eventForm input,
 #eventForm select {
   width: 100%;
-  padding: 4px;
-  margin-bottom: 2px;
+  padding: 1px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 17px;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
+  <link rel="icon" href="../assets/logo.webp" type="image/x-icon" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="../css/admin.css">
 </head>
@@ -18,6 +19,7 @@
               <li><a href="home.html" target="_blank">Home</a></li>
               <li><a href="events.html" target="_blank" >Events</a></li>
               <li><a href="signUp.html" target="_blank" >Add Admin</a></li>
+              <li><a href="#" onclick="logout()">Logout</a></li> <!-- Logout button -->
             </ul>
           </nav>
     </aside>
@@ -86,6 +88,8 @@
         <input type="text" id="location" required><br>
         <label for="description">Description:</label>
         <input type="text" id="description" required><br>
+        <label for="shortdescription">Short Description:</label>
+        <input type="text" id="shortdescription" required><br>
         <label for="startTime">Start Time</label>
         <input type="time" id="startTime" name="startTime" required>
         <label for="endTime">End Time</label>

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
+    <title>Login Form</title>
+    <link rel="icon" href="../assets/logo.webp" type="image/x-icon" />
     <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
@@ -18,16 +19,14 @@
 
       <div class="image-container">
         <div class="imageDiv">
-          <img src="../assets/ui.png" alt="" width="170px" height="160px" />
+          <img src="../assets/ui.png" alt=""/>
         </div>
       </div>
 
       <form id="myForm">
-        <label>Email</label>
-        <input type="text" id="loginEmail" />
+        <input type="text" id="loginEmail" placeholder="Email" />
 
-        <label>Password</label>
-        <input type="password" id="loginPassword" />
+        <input type="password" id="loginPassword" placeholder="Password" />
         <span class="errors" id="login-error"></span>
 
         <p class="message">
@@ -35,6 +34,11 @@
         </p>
 
         <input type="submit" value="Login" onclick="login()" />
+
+        <p class="message">
+          <a href="home.html">Back to Home</a>
+        </p>
+
       </form>
     </div>
 

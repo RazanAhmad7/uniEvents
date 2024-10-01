@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
+    <link rel="icon" href="../assets/logo.webp" type="image/x-icon" />
     <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
@@ -18,17 +19,17 @@
 
       <div class="image-container">
         <div class="imageDiv">
-          <img src="../assets/ui.png" alt="" width="150px" height="130px" />
+          <img src="../assets/ui.png" alt=""  />
         </div>
       </div>
 
       <form id="myForm">
         <div class="name-container">
           <div class="input-group">
-            <label>First Name</label>
             <input
               type="text"
               id="firstName"
+              placeholder="First Name"
               oninput="checkName(this)"
               required
             />
@@ -36,10 +37,10 @@
           </div>
 
           <div class="input-group">
-            <label>Last Name</label>
             <input
               type="text"
               id="lastName"
+              placeholder="Last Name"
               oninput="checkName(this)"
               required
             />
@@ -47,26 +48,43 @@
           </div>
         </div>
 
-        <label>Email</label>
-        <input type="text" id="email" oninput="check(this)" />
+        <input
+          type="text"
+          id="email"
+          placeholder="Email"
+          oninput="check(this)"
+        />
         <span class="errors" id="email-error"></span>
 
-        <label>Password</label>
-        <input type="password" id="password" oninput="check(this)" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          oninput="check(this)"
+        />
         <span class="errors" id="pass-error"></span>
 
-        <label>Confirm Password</label>
-        <input type="password" id="confirmPassword" oninput="passConfirmation()" />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirm Password"
+          oninput="passConfirmation()"
+        />
         <span class="errors" id="pass-conf-error"></span>
 
-        <label>Phone Number</label>
-        <input type="tel" id="phone" oninput="check(this)" />
-        <span class="errors" id="num-error"></span>
+        
+        
         <p class="message">
           Already have an account? <a href="login.html">Login Now</a>
         </p>
 
         <input type="submit" value="Sign Up" onclick="storeData()" />
+
+        <p class="message">
+          <a href="admin.html">Back to Dashboard</a> |
+          <a href="home.html">Back to Home</a>
+        </p>
+
       </form>
     </div>
 
