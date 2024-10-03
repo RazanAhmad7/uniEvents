@@ -53,3 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
   setInterval(nextSlide, 2000); // 2000 milliseconds = 2 seconds
 });
 
+
+function moveme(){
+    window.location.href = "events.html"
+}

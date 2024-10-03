@@ -39,11 +39,9 @@
     <div class="title-div">
         <h1>Events Center</h1>
         
-          <input
-            type="date"
-            id="searchDateInput"
-            placeholder="Type to search by Date"
-          />
+          <input type="text" id="searchDateInput" placeholder="Search by Date"
+           onfocus="(this.type='date')"
+           onblur="(this.type='text')">
       
       <div class="select-category">
         <select name="categories" id="searchByFaculty">
@@ -83,15 +81,10 @@
           <p>Stay tuned for upcoming events!</p>
           <div class="social-media">
             <h4>Follow Us</h4>
-            <a href="#" class="social-icon"
-              ><img src="../assets/facebook.png" alt="Facebook"
-            /></a>
-            <a href="#" class="social-icon"
-              ><img src="../assets/X.png" alt="Twitter"
-            /></a>
-            <a href="#" class="social-icon"
-              ><img src="../assets/instgram.png" alt="Instagram"
-            /></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
         <div class="right-section">

@@ -3,7 +3,7 @@
 if (localStorage.getItem("isLoggedIn") !== "true") {
   window.location.href = "login.html";
 }
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
   let events = JSON.parse(localStorage.getItem('events')) || []; // Fetch events from local storage or initialize an empty array
 
   // Check if events exist in local storage, if not fetch from JSON file

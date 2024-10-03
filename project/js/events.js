@@ -1,10 +1,6 @@
 var events = JSON.parse(localStorage.getItem("events"));
 
-// events.events.forEach((element) => {
-//   localStorage.setItem(element.id, JSON.stringify(element));
-// });
 
-// Ensure this is triggered on page load to avoid flickering issues
 window.onload = function () {
   displayContent(1);
 };
@@ -198,23 +194,6 @@ function filterEvents() {
 
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   const eventsContainer = document.getElementById("eventsContainer");
-
-//   if (!eventsContainer) {
-//       console.error("Events container not found!");
-//       return;
-//   }
-
-//   // Retrieve the filtered events from localStorage
-//   const selectedEvents = JSON.parse(localStorage.getItem("filteredEvents"));
-
-//   // Display the selected events
-//   displayChoosenEvents(selectedEvents);
-// });
-
-
-
 function displayChoosenEvents(array) {
   const card = document.querySelector("#eventsContainer div");
   card.innerHTML = "";
@@ -260,4 +239,5 @@ function filterEvents() {
   // Populate the table with filtered events
   displayChoosenEvents(filteredEvents);
 }
+
 
