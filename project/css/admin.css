@@ -184,6 +184,8 @@ table td:nth-child(3) {
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;     /* Enables vertical scrolling */
+  overflow-x: scroll; 
 }
 
 .modal-content {
@@ -195,6 +197,8 @@ table td:nth-child(3) {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   margin: auto; /* Center the modal */
+
+
 }
 
 .close {

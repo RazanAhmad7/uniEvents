@@ -50,12 +50,12 @@ function checkName(element) {
     }
   }
 }
-
+var passError2 = document.getElementById("pass-conf-error");
 function passConfirmation() {
-  let passError = document.getElementById("pass-conf-error");
-  passError.innerHTML = "";
+  
+  passError2.innerHTML = "";
   if (password.value !== confirmPassword.value) {
-    passError.innerHTML = "Passwords are not matched";
+    passError2.innerHTML = "Passwords are not matched";
   }
 }
 
@@ -103,7 +103,7 @@ function storeData() {
   for (let user of existingUsers) {
     if (email.value === user.Email) {
       emailExists = true;
-      numError.innerHTML = "User already exists";
+      passError2.innerHTML = "User already exists";
       break;
     }
   }
